@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
+    public float cameraDistance = 5.0f;
+
 
     void Start() {
         
@@ -14,8 +16,8 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position + new Vector3(0,2,4);
-        //transform.rotation = Quaternion.Lerp(toRotate.transform.rotation, GetComponent<Camera>().transform.rotation, 100 * Time.deltaTime);
-
+        transform.position = player.transform.position - player.transform.forward * cameraDistance;
+        transform.LookAt(player.transform.position);
+        transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
     }
 }

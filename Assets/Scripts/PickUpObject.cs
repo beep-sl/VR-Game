@@ -43,7 +43,9 @@ public class PickUpObject : MonoBehaviour
         if(other.gameObject.tag == "object") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             canpickup = true;  //set the pick up bool to true
-            ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
+            if (!hasItem) {
+                ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
+            }
         }
     }
     private void OnTriggerExit(Collider other)

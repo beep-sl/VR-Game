@@ -11,7 +11,7 @@ public class DestroyHydrogen : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
-            Instantiate(water, new Vector3(-10, 1, 0), Quaternion.identity);
+            Instantiate(water, new Vector3(-20, 1, 0), Quaternion.identity);
         }
     }
 }
